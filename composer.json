@@ -1,9 +1,14 @@
 {
 	"require": {
-		"illuminate/routing":"*",
-		"illuminate/events":"*",
-		"illuminate/database":"*",
-		"illuminate/view":"*"
+		"illuminate/routing": "*",
+		"illuminate/events": "*",
+		"illuminate/database": "*",
+		"illuminate/view": "*"
+	},
+	"require-dev": {
+		"fzaninotto/faker": "~1.4",
+		"phpunit/phpunit": "~6.0",
+		"mockery/mockery": "~0.9"
 	},
 	"autoload": {
 		"psr-4": {

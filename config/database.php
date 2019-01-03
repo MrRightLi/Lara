@@ -6,7 +6,7 @@ return [
     'port' => 3306,
     'database' => 'laravel',
     'username' => 'root',
-    'password' => '',
+    'password' => '123456',
     'charset' => 'utf8',
     'collation' => 'utf8_general_ci',
     'prefix' => ''

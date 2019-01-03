@@ -1,4 +1,4 @@
 <h3>视图显示信息</h3>
 
-交易id {{ $data['id'] }};<br/>
-交易号 {{ $data['transaction_no'] }};<br/>
+姓名 {{ $data['name'] }};<br/>
+生成日期 {{ $data['created_at'] }};<br/>

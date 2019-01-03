@@ -21,10 +21,7 @@ use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
  */
 class AttributeBagTest extends TestCase
 {
-    /**
-     * @var array
-     */
-    private $array;
+    private $array = array();
 
     /**
      * @var AttributeBag
@@ -48,7 +45,7 @@ class AttributeBagTest extends TestCase
                 ),
             ),
         );
-        $this->bag = new AttributeBag('_sf2');
+        $this->bag = new AttributeBag('_sf');
         $this->bag->initialize($this->array);
     }
 
@@ -70,7 +67,7 @@ class AttributeBagTest extends TestCase
 
     public function testGetStorageKey()
     {
-        $this->assertEquals('_sf2', $this->bag->getStorageKey());
+        $this->assertEquals('_sf', $this->bag->getStorageKey());
         $attributeBag = new AttributeBag('test');
         $this->assertEquals('test', $attributeBag->getStorageKey());
     }
@@ -179,11 +176,11 @@ class AttributeBagTest extends TestCase
             ++$i;
         }
 
-        $this->assertEquals(count($this->array), $i);
+        $this->assertEquals(\count($this->array), $i);
     }
 
     public function testCount()
     {
-        $this->assertEquals(count($this->array), count($this->bag));
+        $this->assertCount(\count($this->array), $this->bag);
     }
 }

@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaction;
+use App\Models\User;
+use Illuminate\Container\Container;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::first();
-        $data = $transactions->getAttributes();
+        $user = User::first();
 
-        return $data['id'];
+        echo "<pre>";
+        var_dump($user);exit;
+
+        $app = Container::getInstance();
+        $factory = $app->make('view');
+
+        return $factory->make('welcome')->with('data', $data);
     }
 }

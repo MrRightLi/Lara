@@ -37,15 +37,27 @@ class ControllerMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
+        $stub = null;
+
         if ($this->option('parent')) {
-            return __DIR__.'/stubs/controller.nested.stub';
+            $stub = '/stubs/controller.nested.stub';
         } elseif ($this->option('model')) {
-            return __DIR__.'/stubs/controller.model.stub';
+            $stub = '/stubs/controller.model.stub';
+        } elseif ($this->option('invokable')) {
+            $stub = '/stubs/controller.invokable.stub';
         } elseif ($this->option('resource')) {
-            return __DIR__.'/stubs/controller.stub';
+            $stub = '/stubs/controller.stub';
         }
 
-        return __DIR__.'/stubs/controller.plain.stub';
+        if ($this->option('api') && is_null($stub)) {
+            $stub = '/stubs/controller.api.stub';
+        } elseif ($this->option('api') && ! is_null($stub) && ! $this->option('invokable')) {
+            $stub = str_replace('.stub', '.api.stub', $stub);
+        }
+
+        $stub = $stub ?? '/stubs/controller.plain.stub';
+
+        return __DIR__.$stub;
     }
 
     /**
@@ -89,7 +101,7 @@ class ControllerMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Build the replacemnets for a parent controller.
+     * Build the replacements for a parent controller.
      *
      * @return array
      */
@@ -138,11 +150,13 @@ class ControllerMakeCommand extends GeneratorCommand
      *
      * @param  string  $model
      * @return string
+     *
+     * @throws \InvalidArgumentException
      */
     protected function parseModel($model)
     {
         if (preg_match('([^A-Za-z0-9_/\\\\])', $model)) {
-            throw new InvalidArgumentException('Models name contains invalid characters.');
+            throw new InvalidArgumentException('Model name contains invalid characters.');
         }
 
         $model = trim(str_replace('/', '\\', $model), '\\');
@@ -163,10 +177,10 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         return [
             ['model', 'm', InputOption::VALUE_OPTIONAL, 'Generate a resource controller for the given model.'],
-
             ['resource', 'r', InputOption::VALUE_NONE, 'Generate a resource controller class.'],
-
+            ['invokable', 'i', InputOption::VALUE_NONE, 'Generate a single method, invokable controller class.'],
             ['parent', 'p', InputOption::VALUE_OPTIONAL, 'Generate a nested resource controller class.'],
+            ['api', null, InputOption::VALUE_NONE, 'Exclude the create and edit methods from the controller.'],
         ];
     }
 }
