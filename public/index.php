@@ -22,7 +22,7 @@ $app['config']['view.paths'] = '/Users/mrrightli/Documents/workplace/laravel/lar
 with(new \Illuminate\View\ViewServiceProvider($app))->register();
 with(new \Illuminate\Filesystem\FilesystemServiceProvider($app))->register();
 // 加载路由
-require __DIR__.'/../app/http/routes.php';
+require __DIR__ . '/../app/Http/routes.php';
 // 实例化请求并分发发处理请求
 $request = Illuminate\Http\Request::createFromGlobals();
 

@@ -56,6 +56,10 @@ class ComposerStaticInit67a2228afdb04f09dfefc9c1c7414554
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
         ),
+        'G' => 
+        array (
+            'Geek\\' => 5,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -178,6 +182,10 @@ class ComposerStaticInit67a2228afdb04f09dfefc9c1c7414554
         'Illuminate\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
+        ),
+        'Geek\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/geek',
         ),
         'Faker\\' => 
         array (
