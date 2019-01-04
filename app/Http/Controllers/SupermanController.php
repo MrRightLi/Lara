@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use Geek\classes\Superman\Module\UltraBomb;
 use Geek\classes\Superman\Module\XPower;
 use Geek\classes\Superman\Superman;
-use Illuminate\Container\Container;
+use Geek\container\Container;
 
-//use Geek\container\Container;
-
-class WelcomeController extends Controller
+class SupermanController extends Controller
 {
     public function index()
     {
-
         $container = new Container();
 
         // 向该 超级工厂 添加 超人 的生产脚本
@@ -38,7 +35,7 @@ class WelcomeController extends Controller
         // ...随意添加
         echo "<pre>";
 
-        print_r($superman_1);
+        print_r($superman_1->done());
 
 
 

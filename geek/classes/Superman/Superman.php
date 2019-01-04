@@ -13,10 +13,15 @@ use Geek\contracts\Superman\SuperModule;
 
 class Superman
 {
-    public $module;
+    protected $module;
 
     public function __construct(SuperModule $module)
     {
         $this->module = $module;
+    }
+
+    public function done()
+    {
+        $this->module->activate([]);
     }
 }
