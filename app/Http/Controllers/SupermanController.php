@@ -33,9 +33,9 @@ class SupermanController extends Controller
         $superman_2 = $container->make('superman', ['ultrabomb']);
         $superman_3 = $container->make('superman', ['xpower']);
         // ...随意添加
-        echo "<pre>";
-
-        print_r($superman_1->done());
+        var_dump($superman_1->done());
+        var_dump($superman_2->done());
+        var_dump($superman_3->done());
 
 
 
