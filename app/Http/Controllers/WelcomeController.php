@@ -19,4 +19,9 @@ class WelcomeController extends Controller
         $params= ['a', 'b', 'c'];
         $instance->done($params);
     }
+
+    public function mockery()
+    {
+        $double = \Mockery::mock();
+    }
 }
