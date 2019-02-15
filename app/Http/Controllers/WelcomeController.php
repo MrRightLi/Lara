@@ -24,3 +24,9 @@ class WelcomeController extends Controller
         $double = \Mockery::mock();
     }
 }
+/*
+git rm -r --cached .
+git add .
+git commit -m ‘update .gitignore’
+
+*/
