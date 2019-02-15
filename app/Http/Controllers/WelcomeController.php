@@ -13,7 +13,6 @@ class WelcomeController extends Controller
 
         $container = Container::getInstance();
 
-
         $instance = $container->make(MyClass::class); // 等同于 $instance = new MyClass(new AnotherClass());
 
         $params= ['a', 'b', 'c'];
